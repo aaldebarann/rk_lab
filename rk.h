@@ -22,7 +22,7 @@ std::pair<double, double> RK2(double (*f)(double, double), double x0, double u0,
 std::pair<double, double> RK4(double (*f)(double, double), double x0, double u0, double h);
 // численное интегрирование
 std::vector<step> solveIvp(double (*f)(double , double), double x0, double u0, double eps, double xMax, double borderEps,
-                         const std::string& method);
+                         const std::string& method, bool variableStep=true);
 
 // РЕШЕНИЕ СИСТЕМ УРАВНЕНИЙ (ВТОРОГО ПОРЯДКА)
 
@@ -75,5 +75,5 @@ struct step_sys {
 std::pair<double, Pair> RK2_sys(Pair (*f)(double, Pair), double x0, Pair u0, double h);
 std::pair<double, Pair> RK4_sys(Pair (*f)(double, Pair), double x0, Pair u0, double h);
 std::vector<step_sys> solveIvp(Pair (*f)(double , Pair), double x0, Pair u0, double eps, double xMax, double borderEps,
-                           const std::string& method);
+                           const std::string& method, bool variableStep=true);
 #endif // RK_H
